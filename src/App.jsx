@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div style={{ textAlign: "center", padding: "40px" }}>
-      <h1>Welcome to RASNET 🚀</h1>
-      <p>We are building this together.</p>
+    <div style={{ textAlign: "center", padding: "50px" }}>
+      <h1>Welcome to Rasnet 🚀</h1>
+      <p>React App Successfully Running!</p>
     </div>
   );
 }
