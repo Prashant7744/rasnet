@@ -1,7 +1,126 @@
-/* Global styles will come here */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5; /* light gray */
+/* CLEAN & WORKING UI CSS */
+
+:root {
+  --bg:#f5f6f8;
+  --card:#ffffff;
+  --primary:#1766c6;
+  --accent:#10b981;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --radius:12px;
+  --gap:12px;
+  font-size:16px;
+  font-family:"Segoe UI", Roboto, Arial, sans-serif;
 }
+
+* { box-sizing:border-box; }
+html, body, #root {
+  margin:0;
+  padding:0;
+  height:100%;
+  background:var(--bg);
+}
+
+/* page container */
+.page {
+  padding:28px;
+  min-height:100vh;
+  padding-bottom:88px; /* navbar space */
+}
+
+/* headings */
+.h1 {
+  font-size:28px;
+  font-weight:700;
+  margin:0 0 18px 0;
+  color:#0f172a;
+}
+
+/* interest chips */
+.chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.chip {
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.15s ease;
+}
+
+.chip.selected {
+  background:var(--primary);
+  color:white;
+}
+
+/* input + add button */
+.controls {
+  display:flex;
+  gap:8px;
+  margin-bottom:16px;
+  align-items:center;
+}
+
+.controls input {
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  width:220px;
+}
+
+/* buttons */
+.btn {
+  background:var(--primary);
+  color:white;
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn.ghost {
+  background:white;
+  color:var(--primary);
+  border:1px solid var(--primary);
+}
+
+.save {
+  margin-top:6px;
+}
+
+/* bottom navbar */
+.navbar {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:64px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:white;
+  border-top:1px solid var(--border);
+  box-shadow:0 -4px 12px rgba(0,0,0,0.05);
+  padding:6px 0;
+}
+
+.nav-link {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.nav-link.active {
+  color:var(--primary);
+}
+

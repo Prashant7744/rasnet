@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// src/App.jsx
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { auth } from "./firebase/firebaseconfig";
 import { onAuthStateChanged } from "firebase/auth";
@@ -12,39 +13,45 @@ import Chats from "./pages/Chats";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(null);
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setChecking(false);
     });
     return () => unsub();
   }, []);
 
+  console.log("USER STATUS:", user);
+
+
+  if (checking) return <div className="page">Loading...</div>;
+
   return (
     <BrowserRouter>
-      <div className="page">
+      {!user ? (
         <Routes>
-  {!user ? (
-    <Route path="*" element={<Login />} />
-  ) : (
-    <>
-      <Route path="/" element={<Explore user={user} />} />
-      <Route path="/interests" element={<Interests user={user} />} />
-      <Route path="/buddies" element={<Buddies user={user} />} />
-      <Route path="/activities" element={<Activities user={user} />} />
-      <Route path="/chats" element={<Chats user={user} />} />
-      <Route path="/profile" element={<Profile user={user} />} />
-    </>
-  )}
-</Routes>
-
-      </div>
-
-      <Navbar user={user} />
+          <Route path="*" element={<Login />} />
+        </Routes>
+      ) : (
+        <>
+          <div className="page">
+            <Routes>
+              <Route path="/" element={<Interests user={user} />} />
+              <Route path="/explore" element={<Explore user={user} />} />
+              <Route path="/buddies" element={<Buddies user={user} />} />
+              <Route path="/activities" element={<Activities user={user} />} />
+              <Route path="/chats" element={<Chats user={user} />} />
+              <Route path="/profile" element={<Profile user={user} />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </div>
+          <Navbar user={user} />
+        </>
+      )}
     </BrowserRouter>
   );
 }
-
-export default App;
