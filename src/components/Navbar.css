@@ -1,0 +1,22 @@
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  font-size: 16px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-bar a:hover {
+  color: #007bff;
+}

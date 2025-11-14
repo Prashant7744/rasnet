@@ -1,0 +1,102 @@
+/* Global UI for Rasnet */
+
+:root {
+  --primary:#1766c6;
+  --accent:#10b981;
+  --card:#ffffff;
+  --bg:#f5f6f8;
+  --border:#d0d7e2;
+  --muted:#6b7280;
+  --radius:12px;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
+}
+
+body {
+  background:var(--bg);
+  color:#111827;
+  min-height:100vh;
+}
+
+/* Page container */
+.page {
+  padding:20px;
+  padding-bottom:90px;
+}
+
+/* Heading */
+.h1 {
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:16px;
+  color:#0f172a;
+}
+
+/* Interest Chips */
+.chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.chip {
+  padding:8px 14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  cursor:pointer;
+  font-weight:500;
+}
+
+.chip.selected {
+  background:var(--primary);
+  color:#fff;
+}
+
+/* Buttons */
+.btn {
+  padding:10px 14px;
+  border-radius:var(--radius);
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn.primary {
+  background:var(--primary);
+  color:white;
+}
+
+.btn.secondary {
+  background:white;
+  border:1px solid var(--border);
+}
+
+/* Footer Navbar */
+.navbar {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:white;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.nav-link {
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-link.active {
+  color:var(--primary);
+}

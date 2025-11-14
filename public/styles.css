@@ -1,0 +1,129 @@
+/* src/index.css - plain CSS for Rasnet UI */
+
+:root{
+  --bg:#f5f6f8;
+  --card:#ffffff;
+  --primary:#1766c6;
+  --accent:#10b981;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --radius:12px;
+  --gap:12px;
+  font-size:16px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-family:inherit;
+  line-height:1.4;
+}
+
+/* page container */
+.page {
+  padding:28px;
+  min-height:100vh;
+  padding-bottom:88px; /* space for navbar */
+}
+
+/* heading */
+.h1 {
+  font-size:28px;
+  font-weight:700;
+  margin:0 0 18px 0;
+  color:#0f172a;
+}
+
+/* interest chips */
+.chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+}
+.chip {
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow: 0 1px 0 rgba(16,24,40,.03);
+  transition:transform .12s ease, background .12s ease, color .12s ease;
+}
+.chip.selected {
+  background:var(--primary);
+  color:white;
+  transform:scale(1.03);
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* input + add */
+.controls { display:flex; gap:8px; align-items:center; margin-bottom:16px; }
+.controls input[type="text"]{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:white;
+  outline:none;
+  width:240px;
+}
+.btn {
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+.btn.secondary { background:var(--accent); }
+.btn.ghost {
+  background:transparent;
+  color:var(--primary);
+  border:1px solid var(--border);
+}
+
+/* Save button */
+.save {
+  margin-top:6px;
+  display:inline-block;
+}
+
+/* Footer navbar */
+.navbar {
+  position:fixed;
+  left:0;right:0;bottom:0;
+  height:64px;
+  background:linear-gradient(180deg,rgba(255,255,255,.98),#fff);
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:8px 16px;
+  box-shadow: 0 -6px 18px rgba(15,23,42,0.04);
+}
+.nav-link {
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  font-size:12px;
+}
+.nav-link.active { color:var(--primary); transform:scale(1.03); }
+
+/* small screens */
+@media (max-width:520px){
+  .page { padding:16px; }
+  .h1 { font-size:22px; }
+  .controls input[type="text"]{ width:160px; }
+}
